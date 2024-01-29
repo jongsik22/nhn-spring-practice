@@ -10,10 +10,7 @@ public class Main {
     public static void main(String[] args) {
         User user = new User("jongsik2@naver.com", "01027282144");
         try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans.xml")) {
-            context.getBean("smsMessageSender", MessageSender.class);
-            context.getBean("smsMessageSender", MessageSender.class);
-            context.getBean("emailMessageSender", MessageSender.class);
-            context.getBean("emailMessageSender", MessageSender.class);
+            context.getBean("messageSendService", MessageSendService.class).doSendMessage(user, "hi");
         }
     }
 }
