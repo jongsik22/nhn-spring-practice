@@ -6,7 +6,7 @@
         default-init-method="init" default-destroy-method="cleanup">
 
     <bean id="messageSendService" class="com.nhnacademy.edu.springframework.service.MessageSendService">
-        <constructor-arg ref="smsMessageSender"/>
+        <property name="messageSender" ref="smsMessageSender"/>
     </bean>
     <bean id="smsMessageSender" class="com.nhnacademy.edu.springframework.sender.SmsMessageSender" scope="prototype">
     </bean>
