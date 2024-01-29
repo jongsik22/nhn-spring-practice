@@ -13,7 +13,7 @@ public class MessageSendService {
         messageSender.sendMessage(user,message);
     }
 
-    public void setMessageSender(MessageSender messageSender) {
+    public void setSmsMessageSender(MessageSender messageSender) {
         this.messageSender = messageSender;
         System.out.println("------------------setter");
     }
