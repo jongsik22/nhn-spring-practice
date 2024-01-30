@@ -4,26 +4,28 @@ import com.nhnacademy.edu.springframework.sender.MessageSender;
 import com.nhnacademy.edu.springframework.sender.SmsMessageSender;
 import com.nhnacademy.edu.springframework.service.MessageSendService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
+import org.springframework.context.annotation.*;
 
 @Configuration
-@ImportResource("classpath:/beans.xml")
+@PropertySource("classpath:number.properties")
+@ComponentScan(basePackages = "com.nhnacademy.edu.springframework")
 public class MainConfig {
-    @Autowired
-    private SenderConfig senderConfig;
-
-    @Value("${number}")
+    private MessageSender smsMessageSender;
     private String number;
+
+    public MainConfig(@Qualifier("smsMessageSender") MessageSender smsMessageSender, @Value("${number}") String number) {
+        this.smsMessageSender = smsMessageSender;
+        this.number = number;
+    }
 
     @Bean
     public MessageSendService messageSendService(){
-        return new MessageSendService(senderConfig.smsMessageSender());
+        return new MessageSendService(smsMessageSender);
     }
     @Bean
     public MessageSendService messageSendService2(){
-        return new MessageSendService(senderConfig.smsMessageSender(), number);
+        return new MessageSendService(smsMessageSender, number);
     }
 }
