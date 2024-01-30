@@ -8,15 +8,17 @@
         >
 
     <context:annotation-config/>
+    <context:property-placeholder location="classpath:name.properties" />
 
     <bean id="messageSendService" class="com.nhnacademy.edu.springframework.service.MessageSendService">
     </bean>
 
     <bean id="smsMessageSender" class="com.nhnacademy.edu.springframework.sender.SmsMessageSender" scope="prototype">
-        <qualifier type="com.nhnacademy.edu.springframework.annotation.Type">
-            <attribute key="typeName" value="SMS"/>
-            <attribute key="dummy" value="false"/>
-        </qualifier>
+        <qualifier type="com.nhnacademy.edu.springframework.annotation.SMS"/>
+<!--        <qualifier type="com.nhnacademy.edu.springframework.annotation.Type">-->
+<!--            <attribute key="typeName" value="SMS"/>-->
+<!--            <attribute key="dummy" value="false"/>-->
+<!--        </qualifier>-->
     </bean>
 
     <bean id="emailMessageSender" class="com.nhnacademy.edu.springframework.sender.EmailMessageSender">
