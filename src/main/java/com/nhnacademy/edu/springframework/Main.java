@@ -12,6 +12,7 @@ public class Main {
         User user = new User("jongsik2@naver.com", "01027282144");
         try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("com.nhnacademy.edu.springframework")) {
             context.getBean("messageSendService", MessageSendService.class).doSendMessage(user, "hi");
+            context.getBean("messageSendService2", MessageSendService.class).doSendMessage(user, "hi");
         }
     }
 }
