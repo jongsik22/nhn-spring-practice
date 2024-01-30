@@ -6,13 +6,14 @@ import com.nhnacademy.edu.springframework.annotation.TypeName;
 import com.nhnacademy.edu.springframework.domain.User;
 import com.nhnacademy.edu.springframework.sender.MessageSender;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 
 public class MessageSendService {
     private MessageSender messageSender;
     private String phoneNumber;
     @Autowired
-    public MessageSendService(@SMS MessageSender messageSender, @Value("${number}") String phoneNumber) {
+    public MessageSendService(@Qualifier("smsMessageSender") MessageSender messageSender, @Value("${number}") String phoneNumber) {
         this.messageSender = messageSender;
         this.phoneNumber = phoneNumber;
     }

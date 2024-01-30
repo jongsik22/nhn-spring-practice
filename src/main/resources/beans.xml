@@ -13,13 +13,13 @@
     <bean id="messageSendService" class="com.nhnacademy.edu.springframework.service.MessageSendService">
     </bean>
 
-    <bean id="smsMessageSender" class="com.nhnacademy.edu.springframework.sender.SmsMessageSender" scope="prototype">
-        <qualifier type="com.nhnacademy.edu.springframework.annotation.SMS"/>
-<!--        <qualifier type="com.nhnacademy.edu.springframework.annotation.Type">-->
-<!--            <attribute key="typeName" value="SMS"/>-->
-<!--            <attribute key="dummy" value="false"/>-->
-<!--        </qualifier>-->
-    </bean>
+<!--    <bean id="smsMessageSender" class="com.nhnacademy.edu.springframework.sender.SmsMessageSender" scope="prototype">-->
+<!--        <qualifier type="com.nhnacademy.edu.springframework.annotation.SMS"/>-->
+<!--&lt;!&ndash;        <qualifier type="com.nhnacademy.edu.springframework.annotation.Type">&ndash;&gt;-->
+<!--&lt;!&ndash;            <attribute key="typeName" value="SMS"/>&ndash;&gt;-->
+<!--&lt;!&ndash;            <attribute key="dummy" value="false"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        </qualifier>&ndash;&gt;-->
+<!--    </bean>-->
 
     <bean id="emailMessageSender" class="com.nhnacademy.edu.springframework.sender.EmailMessageSender">
         <qualifier type="com.nhnacademy.edu.springframework.annotation.Type">
